@@ -60,7 +60,7 @@ const Navbar = () => {
       path: "/resources",
       dropdown: [
         { name: "Library", path: "/resources" },
-        { name: "Events, Blog & News", path: "/blog" },
+        { name: "News & Blogs", path: "/blog" },
         { name: "Membership", path: "/Membership" },
         { name: "Gulf Spectrum Podcast", path: "/gulf-spectrum-podcast" },
       ],
