@@ -226,7 +226,7 @@ const IMSWG = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full"></div>
               <img 
-                src="/Main.jpg"
+                src="/imswgq1.jpeg"
                 alt="IMSWG 2026 Forum"
                 className="relative rounded-2xl shadow-2xl w-full hover:scale-105 transition-transform duration-300"
               />
