@@ -134,7 +134,7 @@ const Management = () => {
             {[
               { name: 'Ellise Grant Boamah', title: 'National Service Personel' },
               { name: 'Mavis Akortsu', title: 'Office Assistant' },
-              { name: 'Juliet Afrah Obeng ', title: 'Research Manager' }
+              { name: 'Juliet Afrah Obeng ', title: 'United Nation Hamilton Shirley Amerasinghe Memorial Fellow' }
             ].map((member, idx) => (
               <div key={idx} className="group">
                 <div className="relative overflow-hidden rounded-xl mb-4 bg-gray-100 aspect-[3/4] shadow-lg border-2 border-gray-200">
