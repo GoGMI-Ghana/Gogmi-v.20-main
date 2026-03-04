@@ -611,6 +611,7 @@ const Home = () => {
           category: 'News & Blogs',
           title: 'Past Naval Chief Endorses Ghana’s Arbitration Decision on Maritime Boundary ',
           excerpt: 'Vice Admiral Issah Adam Yakubu (Rtd), immediate past Chief of the Naval Staff of the Ghana Navy, strongly endorsed the government of Ghana’s decision to submit the long-standing maritime boundary dispute with Togo to international arbitration. ',
+          date: 'February 25, 2026',
           link: 'https://www.gogmiconsult.com/post/why-the-ghana-togo-maritime-boundary-delimitation-must-go-for-international-arbitration ',
           image: '/thumbnail.jpeg'
         },
