@@ -177,8 +177,8 @@ const Contact = () => {
               {
                 icon: <MapPin className="w-8 h-8" />,
                 title: 'Visit Us',
-                info: 'GL-108-0038, Tse addo, ',
-                subinfo: 'La Dade Kotopon, Burma Camp, Accra',
+                info: 'GL-108-0038, No. 4 Obodai link street, , ',
+                subinfo: 'Tse Addo La Dade Kotopon, Accra',
                 color: 'from-[#1A336C] to-[#132552]'
               }
             ].map((item, idx) => (
