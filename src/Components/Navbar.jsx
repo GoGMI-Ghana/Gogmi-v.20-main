@@ -209,7 +209,7 @@ const Navbar = () => {
           {!isAuthenticated ? (
             <>
               <button
-                onClick={() => handleNavClick("/login")}
+                onClick={() => handleNavClick("")}
                 className={`px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
                   scrolled
                     ? "text-[#1F2933] hover:bg-[#8E3400]/10"
