@@ -157,7 +157,7 @@ const IMSWGSignUp = () => {
             Join IMSWG
           </h1>
           <p className="text-lg" style={{ color: '#64748b' }}>
-            International Maritime Security Working Group Application
+            International Maritime Security Working Group
           </p>
         </div>
       </div>
@@ -168,10 +168,7 @@ const IMSWGSignUp = () => {
           {/* Introduction */}
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
             <p className="text-base leading-relaxed" style={{ color: '#475569' }}>
-              If you are interested in ocean governance, maritime safety and security, think tank development, 
-              international relations, international maritime and trade development and other international issues, 
-              and are willing to join the International Maritime Security Working Group, please submit the following 
-              information and the forum Secretariat will get back to you.
+              IMSWG 2026 - Quarter 1 Forum
             </p>
           </div>
 
