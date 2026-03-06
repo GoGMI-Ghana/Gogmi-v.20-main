@@ -24,7 +24,7 @@ const CapacityBuilding = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Featured Courses for Auto-Slider
+  // Featured Courses for Auto-Slider - FIXED LINK
   const featuredCourses = [
     {
       id: 'maritime-governance',
@@ -46,7 +46,7 @@ const CapacityBuilding = () => {
       bgColor: '#132552',
       accentColor: '#17A2B8',
       buttonColor: '#8E3400',
-      link: '/maritime-governance-course'
+      link: '/maritime-governance-course' // FIXED: Changed from /newMaritimeGovernanceCourse
     },
     {
       id: 'marine-casualty',
@@ -163,6 +163,19 @@ const CapacityBuilding = () => {
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
+  };
+
+  // Handle navigation with fallback
+  const handleCourseNavigation = (course) => {
+    if (course.id === 'maritime-governance') {
+      // For maritime governance, use the correct route
+      navigate('/maritime-governance-course');
+    } else if (course.id === 'marine-casualty') {
+      navigate('/marine-casualty-course');
+    } else {
+      // Fallback to the link property
+      navigate(course.link);
+    }
   };
 
   return (
@@ -374,22 +387,22 @@ const CapacityBuilding = () => {
                             </div>
                           </div>
 
-                          {/* Action Buttons */}
+                          {/* Action Buttons - FIXED: Using onClick for more control */}
                           <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                            <Link
-                              to={course.link}
+                            <button
+                              onClick={() => handleCourseNavigation(course)}
                               className="flex-1 text-center px-6 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-lg text-white"
                               style={{ backgroundColor: course.buttonColor }}
                             >
                               View Full Program →
-                            </Link>
-                            <Link
-                              to={course.link}
+                            </button>
+                            <button
+                              onClick={() => handleCourseNavigation(course)}
                               className="flex-1 text-center px-6 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 bg-white"
                               style={{ borderColor: '#132552', color: '#132552' }}
                             >
                               Apply Now
-                            </Link>
+                            </button>
                           </div>
 
                           {/* Next Intake */}
