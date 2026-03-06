@@ -135,9 +135,9 @@ const Research = () => {
 
   // Live Data
   const liveData = [
-    { label: "Active Research Projects", value: "36", change: "+3" },
-    { label: "Data Points Collected", value: "2.4M", change: "+45K" },
-    { label: "Partner Institutions", value: "89", change: "+5" }
+    { label: "Active Research Projects", value: "36" },
+    { label: "Data Points Collected", value: "2.4M" },
+    { label: "Partner Institutions", value: "89"}
   ];
 
   return (
