@@ -20,47 +20,31 @@ const Home = () => {
   const eventBanners = [
     {
       id: 1,
-      image: '/event-banner-1.jpg', // Replace with actual event banner paths
-      alt: 'Maritime Security Conference 2026',
-      link: '/events/maritime-security-conference-2026'
+      image: '/event-banner-1.jpg', 
+      alt: 'Maritime Security Conference 2026'
     },
     {
       id: 2,
       image: '/event-banner-2.jpg',
-      alt: 'Blue Economy Summit',
-      link: '/events/blue-economy-summit'
+      alt: 'Blue Economy Summit'
     },
     {
       id: 3,
       image: '/event-banner-3.jpg',
-      alt: 'Gulf of Guinea Maritime Week',
-      link: '/events/maritime-week'
+      alt: 'Gulf of Guinea Maritime Week'
     },
     {
       id: 4,
       image: '/event-banner-4.jpg',
-      alt: 'Youth in Maritime Workshop',
-      link: '/events/youth-workshop'
-    },
-    {
-      id: 5,
-      image: '/event-banner-5.jpg',
-      alt: 'International Maritime Symposium',
-      link: '/events/symposium'
-    },
-    {
-      id: 6,
-      image: '/event-banner-6.jpg',
-      alt: 'Coastal States Forum',
-      link: '/events/coastal-forum'
+      alt: 'Youth in Maritime Workshop'
     }
   ];
 
-  // Slideshow ref and state
+  
   const scrollContainerRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Autoscroll functionality
+  
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer || isPaused) return;
@@ -70,9 +54,9 @@ const Home = () => {
 
     const autoScroll = setInterval(() => {
       if (scrollContainer && !isPaused) {
-        // Check if we've reached the end
+        
         if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-          // Reset to beginning for seamless loop
+          
           scrollContainer.scrollLeft = 0;
         } else {
           scrollContainer.scrollLeft += scrollStep;
@@ -740,7 +724,7 @@ const Home = () => {
   </div>
 </section>
 
-      {/* EVENTS BANNER SLIDESHOW*/}
+      {/* EVENTS BANNER SLIDESHOW - REPLACES "READY TO PARTNER WITH US?" SECTION */}
       <section className="py-20 md:py-28 relative overflow-hidden" 
                style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
         {/* Subtle decorative elements */}
@@ -792,7 +776,7 @@ const Home = () => {
                       alt={banner.alt}
                       className="w-full h-auto object-cover aspect-[16/9]"
                       onError={(e) => {
-                        // Fallback if image doesn't load
+                        
                         e.target.src = 'https://via.placeholder.com/800x450?text=Event+Banner';
                       }}
                     />
