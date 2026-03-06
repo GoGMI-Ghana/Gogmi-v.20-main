@@ -110,7 +110,7 @@ const Careers = () => {
             Be part of a team transforming The Future of the Gulf of Guinea Maritime Domain
           </p>
 
-          {/* Quick Stats - FIXED: Added flex justify-center to center the grid */}
+          {/* Quick Stats */}
           <div className="flex justify-center">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full mx-auto mt-12">
               {[
