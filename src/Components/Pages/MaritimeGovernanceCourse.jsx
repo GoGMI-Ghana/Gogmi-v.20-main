@@ -203,12 +203,7 @@ const MaritimeGovernanceCourse = () => {
     {
       name: 'Dr. Alberta Ama Sagoe',
       title: 'Board Director, GoGMI',
-      credentials: 'Oversight over Technical Services'
-    },
-    {
-      name: 'Lt. Commander Kofi Amponsah Duodu',
-      title: 'Board Director, GoGMI',
-      credentials: 'Oversight over Finance and Administration'
+      credentials: 'Maritime Expert'
     }
   ];
 
