@@ -98,10 +98,55 @@ const MaritimeGovernanceCourse = () => {
     { id: 'modules', label: 'Course Modules' }
   ];
 
-  const modules = [
+  // Updated modules to highlight the 8 specific modules
+  const moduleList = [
+    {
+      number: 1,
+      title: "Introduction & Maritime Strategy Theory",
+      description: "Foundational concepts of maritime strategy, strategic thinking versus operational planning, and the maritime strategy development cycle."
+    },
+    {
+      number: 2,
+      title: "Assessing Maritime Domain Challenges & Opportunities",
+      description: "Maritime threat landscape, security challenges, economic opportunities, and comprehensive maritime domain assessments."
+    },
+    {
+      number: 3,
+      title: "Strategy Development Process",
+      description: "Step-by-step strategy development framework, vision and goal setting, strategic objective formulation, and policy alignment."
+    },
+    {
+      number: 4,
+      title: "Interagency Coordination & Stakeholder Analysis",
+      description: "Mapping maritime stakeholders, coordination mechanisms, building partnerships, and multi-sectoral collaboration."
+    },
+    {
+      number: 5,
+      title: "Ends, Ways, Means & Risk",
+      description: "Strategic framework alignment, resource mobilization, risk identification, mitigation strategies, and contingency planning."
+    },
+    {
+      number: 6,
+      title: "Maritime Strategy Implementation",
+      description: "From strategy to action, implementation planning, monitoring and evaluation systems, and adaptive management."
+    },
+    {
+      number: 7,
+      title: "Sector Planning – In Class Exercise",
+      description: "Practical sector planning exercise, applying strategy development frameworks, and team-based strategy development."
+    },
+    {
+      number: 8,
+      title: "Case Study Reports & Course Conclusion",
+      description: "Analysis of regional maritime strategies, comparative analysis of successes and challenges, and final presentations."
+    }
+  ];
+
+  const weeklyBreakdown = [
     {
       week: 'Week 1',
       title: 'Maritime Strategy Theory & Assessment',
+      modules: [1, 2],
       sessions: [
         'Strategy Development Directives and Instruments',
         'Purpose and need to develop Maritime Strategies',
@@ -112,6 +157,7 @@ const MaritimeGovernanceCourse = () => {
     {
       week: 'Week 2',
       title: 'Strategy Development & Stakeholder Analysis',
+      modules: [3, 4],
       sessions: [
         'Developing the Vision Statement',
         'Understanding stakeholder roles in strategy development',
@@ -122,6 +168,7 @@ const MaritimeGovernanceCourse = () => {
     {
       week: 'Week 3',
       title: 'Ends, Ways, Means & Implementation',
+      modules: [5, 6],
       sessions: [
         'Introduction to Ends, Ways, Means, and Risk',
         'Successes and Failures of maritime strategy implementation',
@@ -132,6 +179,7 @@ const MaritimeGovernanceCourse = () => {
     {
       week: 'Week 4',
       title: 'Practical Exercise & Conclusion',
+      modules: [7, 8],
       sessions: [
         'Maritime Strategy Sector Planning - In Class Exercise',
         'Group Case Study Presentations',
@@ -580,7 +628,9 @@ const MaritimeGovernanceCourse = () => {
 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552' }}>Live/Virtual Sessions</h3>
+                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#132552' }}>
+                      Live/Virtual Sessions
+                    </h3>
                     <p className="text-base leading-relaxed mb-4" style={{ color: '#4B5563' }}>
                       The Maritime Governance Course is practically designed to use an interactive learning platform to engage participants. 
                       A Zoom online platform will be mounted to provide an interactive and engaging learning experience. Sessions include:
@@ -736,37 +786,84 @@ const MaritimeGovernanceCourse = () => {
             {/* Course Modules Tab */}
             {activeTab === 'modules' && (
               <div className="space-y-8">
-                <h2 className="text-3xl md:text-4xl font-black mb-6" style={{ color: '#132552' }}>
+                <h2 className="text-3xl md:text-4xl font-black mb-2" style={{ color: '#132552' }}>
                   Course Modules
                 </h2>
+                <p className="text-lg mb-6" style={{ color: '#4B5563' }}>
+                  The course content has been categorised into eight (8) modules to be covered over two (2) weeks, with each module covering a specific topic or concept.
+                </p>
 
-                <div className="space-y-6">
-                  {modules.map((module, idx) => (
-                    <div key={idx} className="rounded-xl border-2 overflow-hidden" style={{ borderColor: '#E5E7EB' }}>
-                      <div className="p-6" style={{ backgroundColor: '#132552' }}>
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <div className="text-sm font-bold mb-1" style={{ color: '#8E3400' }}>{module.week}</div>
-                            <h3 className="text-xl font-bold text-white">{module.title}</h3>
-                          </div>
-                        </div>
+                {/* 8 Modules Grid - HIGHLIGHTED */}
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                  {moduleList.map((module) => (
+                    <div 
+                      key={module.number} 
+                      className="p-6 rounded-xl border-2 hover:shadow-lg transition-all relative overflow-hidden group"
+                      style={{ borderColor: module.number % 2 === 0 ? '#132552' : '#8E3400' }}
+                    >
+                      {/* Module Number Badge */}
+                      <div 
+                        className="absolute top-0 right-0 w-16 h-16 -mr-6 -mt-6 transform rotate-45"
+                        style={{ backgroundColor: module.number % 2 === 0 ? '#132552' : '#8E3400' }}
+                      ></div>
+                      <div className="absolute top-2 right-3 text-white font-bold z-10">
+                        #{module.number}
                       </div>
-                      <div className="p-6">
-                        <h4 className="font-bold mb-3 text-sm" style={{ color: '#6B7280' }}>KEY SESSIONS:</h4>
-                        <ul className="space-y-2">
-                          {module.sessions.map((session, sidx) => (
-                            <li key={sidx} className="flex items-start gap-3">
-                              <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
-                              <span className="text-sm" style={{ color: '#4B5563' }}>{session}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      
+                      <h3 className="text-lg font-bold mb-3 pr-8" style={{ color: '#132552' }}>
+                        {module.title}
+                      </h3>
+                      <p className="text-sm" style={{ color: '#6B7280' }}>
+                        {module.description}
+                      </p>
                     </div>
                   ))}
                 </div>
 
-                <div className="p-8 rounded-xl border-l-4" style={{ backgroundColor: '#F5F7FA', borderColor: '#8E3400' }}>
+                {/* Weekly Breakdown */}
+                <div className="mt-10">
+                  <h3 className="text-2xl font-bold mb-6" style={{ color: '#132552' }}>
+                    Weekly Breakdown
+                  </h3>
+                  <div className="space-y-6">
+                    {weeklyBreakdown.map((week, idx) => (
+                      <div key={idx} className="rounded-xl border-2 overflow-hidden" style={{ borderColor: '#E5E7EB' }}>
+                        <div className="p-6" style={{ backgroundColor: '#132552' }}>
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <div className="text-sm font-bold mb-1" style={{ color: '#8E3400' }}>{week.week}</div>
+                              <h4 className="text-xl font-bold text-white">{week.title}</h4>
+                            </div>
+                            <div className="flex gap-1">
+                              {week.modules.map((moduleNum) => (
+                                <span 
+                                  key={moduleNum}
+                                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                                  style={{ backgroundColor: moduleNum % 2 === 0 ? '#132552' : '#8E3400' }}
+                                >
+                                  {moduleNum}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <h5 className="font-bold mb-3 text-sm" style={{ color: '#6B7280' }}>KEY SESSIONS:</h5>
+                          <ul className="space-y-2">
+                            {week.sessions.map((session, sidx) => (
+                              <li key={sidx} className="flex items-start gap-3">
+                                <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: '#8E3400' }} />
+                                <span className="text-sm" style={{ color: '#4B5563' }}>{session}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-8 rounded-xl border-l-4 mt-8" style={{ backgroundColor: '#F5F7FA', borderColor: '#8E3400' }}>
                   <h3 className="text-xl font-bold mb-4" style={{ color: '#132552' }}>Learning Materials</h3>
                   <p className="text-base mb-4" style={{ color: '#4B5563' }}>
                     Each module includes:
