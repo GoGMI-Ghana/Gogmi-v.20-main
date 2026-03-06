@@ -19,23 +19,23 @@ const Home = () => {
   const eventBanners = [
     {
       id: 1,
-      image: '/event-banner-1.jpg', 
-      alt: 'Maritime Security Conference 2026'
+      image: '/membernew.jpeg', 
+      alt: 'Maritime Membership'
     },
     {
       id: 2,
-      image: '/event-banner-2.jpg',
-      alt: 'Blue Economy Summit'
+      image: '/imswgq1.jpeg',
+      alt: 'IMSWG Quarter 11'
     },
     {
       id: 3,
-      image: '/event-banner-3.jpg',
+      image: '/marigov.jpeg',
       alt: 'Gulf of Guinea Maritime Week'
     },
     {
       id: 4,
-      image: '/event-banner-4.jpg',
-      alt: 'Youth in Maritime Workshop'
+      image: '/maricourse.jpeg',
+      alt: 'Maritime Course'
     }
   ];
 
@@ -794,7 +794,7 @@ const Home = () => {
           
           {/* Play/Pause */}
           <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
-            {isPaused ? '' : 'Hover to pause'}
+            {isPaused ? '' : ''}
           </div>
         </div>
       </section>
