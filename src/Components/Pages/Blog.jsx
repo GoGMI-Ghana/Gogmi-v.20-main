@@ -370,7 +370,7 @@ const Blog = () => {
             <h3 className="text-center text-[#8E3400] font-semibold text-sm uppercase tracking-wider mb-6" style={{ fontWeight: 600 }}>
               Filter by Category
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-5xl mx-auto">
               {categories.map((category) => (
                 <button
                   key={category}
