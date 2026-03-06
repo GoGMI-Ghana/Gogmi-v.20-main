@@ -112,7 +112,7 @@ const Careers = () => {
 
           {/* Quick Stats */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl w-full mx-auto mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl w-full mx-auto mt-12">
               {[
                 { number: '20+', label: 'Team Members' },
                 { number: '5', label: 'Nationalities' },
