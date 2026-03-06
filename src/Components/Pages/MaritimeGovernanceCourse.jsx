@@ -877,34 +877,6 @@ const MaritimeGovernanceCourse = () => {
           </div>
         </div>
       </div>
-
-      {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Ready to Transform Maritime Strategy in Africa?
-          </h2>
-          <p className="text-lg text-white/90 mb-10 max-w-2xl mx-auto">
-            Join leading professionals in developing the expertise needed to create and implement effective maritime strategies across the continent.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={() => openForm('apply')}
-              className="px-10 py-4 rounded-lg font-bold transition-all hover:scale-105 shadow-xl"
-              style={{ backgroundColor: '#8E3400', color: 'white' }}
-            >
-              Apply for May 2026 Cohort
-            </button>
-            <button 
-              onClick={() => openForm('download')}
-              className="px-10 py-4 rounded-lg font-bold transition-all hover:scale-105 border-2 border-white/30 text-white hover:bg-white/10"
-            >
-              Download Full Syllabus
-            </button>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
