@@ -724,7 +724,7 @@ const Home = () => {
   </div>
 </section>
 
-      {/* EVENTS BANNER SLIDESHOW - REPLACES "READY TO PARTNER WITH US?" SECTION */}
+      {/* EVENTS BANNER SLIDESHOW*/}
       <section className="py-20 md:py-28 relative overflow-hidden" 
                style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
         {/* Subtle decorative elements */}
@@ -783,7 +783,7 @@ const Home = () => {
                     {/* Overlay with gradient on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center">
                       <span className="text-white font-bold text-lg mb-4 px-4 py-2 bg-black/50 rounded-full backdrop-blur-sm">
-                        View Event Details
+                        Events
                       </span>
                     </div>
                   </div>
@@ -798,7 +798,7 @@ const Home = () => {
           
           {/* Pause/Play indicator (subtle) */}
           <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
-            {isPaused ? ''}
+            {isPaused ? ':'}
           </div>
         </div>
       </section>
