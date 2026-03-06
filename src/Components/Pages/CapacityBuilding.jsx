@@ -46,7 +46,7 @@ const CapacityBuilding = () => {
       bgColor: '#132552',
       accentColor: '#17A2B8',
       buttonColor: '#8E3400',
-      link: '/newMaritimeGovernanceCourse'
+      link: '/MaritimeGovernanceCourse'
     },
     {
       id: 'marine-casualty',
