@@ -723,7 +723,7 @@ const Home = () => {
   </div>
 </section>
 
-     {/* EVENTS BANNER SLIDESHOW */}
+     {/* EVENTS BANNER SLIDESHOW - FIXED */}
 <section className="py-20 md:py-28 relative overflow-hidden" 
          style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
   {/* Subtle decorative elements */}
@@ -732,12 +732,18 @@ const Home = () => {
   <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
        style={{ backgroundColor: '#132552' }}></div>
        
+  {/* FIXED: Added the missing container div */}
+  <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
+    <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
+          style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
+      Upcoming & Past Events
+    </span>
     <h2 className="text-5xl md:text-6xl font-black mb-6"
         style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
       Featured Events
     </h2>
     <p className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-      Discover our Forums, workshops and other activities
+      Discover our forums, conferences, trainings and other key activities
     </p>
     
     {/* Horizontal Continuous Autoscroll Slideshow - 2 images at a time */}
@@ -760,7 +766,7 @@ const Home = () => {
         {[...eventBanners, ...eventBanners].map((banner, index) => (
           <Link
             key={`${banner.id}-${index}`}
-            to={banner.link}
+            to={banner.link || '#'}
             className="flex-shrink-0 w-[calc(50%-12px)] md:w-[calc(50%-12px)] group"
             onClick={() => setIsPaused(false)} 
           >
@@ -792,8 +798,8 @@ const Home = () => {
       {isPaused ? '' : ''}
     </div>
   </div>
-  </div>
 </section>
+
     </div>
   );
 };
