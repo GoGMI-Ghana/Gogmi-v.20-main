@@ -10,7 +10,7 @@ const IMSWGforum = () => {
     whatsappNumber: '',
     country: '',
     position: '',
-    institution: '' // New optional field
+    institution: ''
   });
 
   const [errors, setErrors] = useState({});
