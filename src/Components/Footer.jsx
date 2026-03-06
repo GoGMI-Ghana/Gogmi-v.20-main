@@ -35,7 +35,7 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-[#8E3400] flex-shrink-0 mt-0.5" />
                 <div>
                   <div>No. 4 Obodai link street, Tse Addo La Dade Kotopon, GL-108-0038</div>
-                  <div>Burma Camp, Accra</div>
+                  <div>Gr. Accra</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3 text-gray-400" style={{ fontWeight: 400 }}>
