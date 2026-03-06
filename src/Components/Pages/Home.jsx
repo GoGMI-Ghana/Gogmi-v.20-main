@@ -723,81 +723,81 @@ const Home = () => {
   </div>
 </section>
 
-      {/* EVENTS BANNER SLIDESHOW*/}
-      <section className="py-20 md:py-28 relative overflow-hidden" 
-               style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
-        {/* Subtle decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
-             style={{ backgroundColor: '#8E3400' }}></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
-             style={{ backgroundColor: '#132552' }}></div>
-             
-        <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
-          <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
-                style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-            Upcoming & Past Events
-          </span>
-          <h2 className="text-5xl md:text-6xl font-black mb-6"
-              style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-            Featured Events
-          </h2>
-          <p className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
-            Discover our conferences, workshops, and maritime gatherings
-          </p>
-          
-          {/* Horizontal Continuous Autoscroll Slideshow - 2 images at a time */}
-          <div 
-            className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+     {/* EVENTS BANNER SLIDESHOW */}
+<section className="py-20 md:py-28 relative overflow-hidden" 
+         style={{ background: 'linear-gradient(135deg, #F5F7FA 0%, #ffffff 50%, #F5F7FA 100%)' }}>
+  {/* Subtle decorative elements */}
+  <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
+       style={{ backgroundColor: '#8E3400' }}></div>
+  <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10"
+       style={{ backgroundColor: '#132552' }}></div>
+       
+  <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
+    <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
+          style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
+      Upcoming & Past Events
+    </span>
+    <h2 className="text-5xl md:text-6xl font-black mb-6"
+        style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
+      Featured Events
+    </h2>
+    <p className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>
+      Discover our conferences, workshops, and maritime gatherings
+    </p>
+    
+    {/* Horizontal Continuous Autoscroll Slideshow - 2 images at a time */}
+    <div 
+      className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div 
+        ref={scrollContainerRef}
+        className="flex gap-6 overflow-x-auto no-scrollbar py-4 px-2"
+        style={{ 
+          scrollBehavior: 'auto',
+          cursor: 'grab',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}
+      >
+        {/* banners array*/}
+        {[...eventBanners, ...eventBanners].map((banner, index) => (
+          <Link
+            key={`${banner.id}-${index}`}
+            to={banner.link}
+            className="flex-shrink-0 w-[calc(50%-12px)] md:w-[calc(50%-12px)] group"
+            onClick={() => setIsPaused(false)} 
           >
-            <div 
-              ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-auto no-scrollbar py-4 px-2"
-              style={{ 
-                scrollBehavior: 'auto',
-                cursor: 'grab',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
-              }}
-            >
-              {/* banners array*/}
-              {[...eventBanners, ...eventBanners].map((banner, index) => (
-                <Link
-                  key={`${banner.id}-${index}`}
-                  to={banner.link}
-                  className="flex-shrink-0 w-[calc(50%-12px)] md:w-[calc(50%-12px)] group"
-                  onClick={() => setIsPaused(false)} 
-                >
-                  <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-                    <img 
-                      src={banner.image} 
-                      alt={banner.alt}
-                      className="w-full h-auto object-cover aspect-[16/9]"
-                      onError={(e) => {
-                        
-                        e.target.src = 'https://via.placeholder.com/800x450?text=Event+Banner';
-                      }}
-                    />
-                    {/* Overlay with gradient on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center">
-                    </div>
-                  </div>
-                </Link>
-              ))}
+            <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] bg-gray-50">
+              <img 
+                src={banner.image} 
+                alt={banner.alt}
+                className="w-full h-auto object-contain aspect-auto"
+                style={{ maxHeight: '400px' }} // Adjust this value as needed
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/800x450?text=Event+Banner';
+                }}
+              />
+              {/* Overlay with gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center">
+              </div>
             </div>
-            
-            {/* Gradient fade on edges for visual effect */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none"></div>
-          </div>
-          
-          {/* Play/Pause */}
-          <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
-            {isPaused ? '' : ''}
-          </div>
-        </div>
-      </section>
+          </Link>
+        ))}
+      </div>
+      
+      {/* Gradient fade on edges for visual effect */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none"></div>
+    </div>
+    
+    {/* Play/Pause */}
+    <div className="mt-6 text-sm font-medium" style={{ color: '#6B7280' }}>
+      {isPaused ? '' : ''}
+    </div>
+  </div>
+</section>
 
     </div>
   );
