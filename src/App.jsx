@@ -28,7 +28,7 @@ import Management from './Components/Pages/Management';
 import AdvisoryBoard from './Components/Pages/AdvisoryBoard';
 import Login from './Components/Pages/Login';
 import IMSWGSignUp from './Components/Pages/IMSWGSignUp';
-import MaritimeGovernanceCourse from './Components/Pages/maritimegovernancecourse';
+import MaritimeGovernanceCourse from './Components/Pages/MaritimeGovernanceCourse';
 import MarineCasualtyCourse from './Components/Pages/MarineCasualtyCourse';
 import GulfSpectrumPodcast from './Components/Pages/GulfSpectrumPodcast';
 import BlueWorldInitiative from './Components/Pages/BlueWorldInitiative';
@@ -64,7 +64,7 @@ function App() {
               <Route path="/management" element={<Management />} />
               <Route path="/advisoryboard" element={<AdvisoryBoard />} />
               <Route path="/imswg-signup" element={<IMSWGSignUp />} />
-              <Route path="/maritime-governance-course" element={<maritimegovernancecourse />} />
+              <Route path="/maritime-governance-course" element={<MaritimeGovernanceGourse />} />
               <Route path="/marine-casualty-course" element={<MarineCasualtyCourse />} />
               <Route path="/gulf-spectrum-podcast" element={<GulfSpectrumPodcast />} />
              <Route path="/blue-world-initiative" element={<BlueWorldInitiative />} />
