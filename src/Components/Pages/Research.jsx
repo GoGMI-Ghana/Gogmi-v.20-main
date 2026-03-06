@@ -216,10 +216,6 @@ const Research = () => {
                       {item.value}
                     </div>
                     <p className="text-xs mb-2" style={{ fontWeight: 500, color: '#6B7280' }}>{item.label}</p>
-                    <span className="text-xs px-2 py-0.5 rounded-full" 
-                          style={{ fontWeight: 600, backgroundColor: '#8E3400', color: 'white' }}>
-                      {item.change} today
-                    </span>
                   </div>
                 ))}
               </div>
