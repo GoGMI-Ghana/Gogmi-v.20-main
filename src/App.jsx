@@ -64,7 +64,7 @@ function App() {
               <Route path="/management" element={<Management />} />
               <Route path="/advisoryboard" element={<AdvisoryBoard />} />
               <Route path="/imswg-signup" element={<IMSWGSignUp />} />
-              <Route path="/maritime-governance-course" element={<MaritimeGovernanceGourse />} />
+              <Route path="/maritimegovernancecourse" element={<MaritimeGovernanceCourse />} />
               <Route path="/marine-casualty-course" element={<MarineCasualtyCourse />} />
               <Route path="/gulf-spectrum-podcast" element={<GulfSpectrumPodcast />} />
              <Route path="/blue-world-initiative" element={<BlueWorldInitiative />} />
