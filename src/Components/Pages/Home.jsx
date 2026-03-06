@@ -792,6 +792,7 @@ const Home = () => {
       {isPaused ? '' : ''}
     </div>
   </div>
+  </div>
 </section>
 
     </div>
