@@ -178,7 +178,7 @@ const ExecutiveChairman = () => {
             
             {/* Board Member 1 */}
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-              <div className="relative bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 mb-4">
+              <div className="relative bg-white rounded-2g overflow-hidden shadow-md border border-gray-100 mb-4">
                 <div className="aspect-[5/4]">
                   <img 
                     src="/lt.amponsah.jpg" 
@@ -208,7 +208,7 @@ const ExecutiveChairman = () => {
 
             {/* Board Member 2 */}
             <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
-              <div className="relative bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 mb-4">
+              <div className="relative bg-white rounded-2g overflow-hidden shadow-md border border-gray-100 mb-4">
                 <div className="aspect-[5/4]">
                   <img 
                     src="/Alberta.jpg" 
