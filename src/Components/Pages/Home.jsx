@@ -734,10 +734,6 @@ const Home = () => {
        
   {/* FIXED: Added the missing container div */}
   <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
-    <span className="font-semibold text-sm uppercase tracking-wider inline-block mb-4" 
-          style={{ color: '#8E3400', fontFamily: 'Inter, sans-serif', fontWeight: 600 }}>
-      Upcoming & Past Events
-    </span>
     <h2 className="text-5xl md:text-6xl font-black mb-6"
         style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
       Featured Events
