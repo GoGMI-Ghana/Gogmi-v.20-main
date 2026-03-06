@@ -221,7 +221,7 @@ const MaritimeGovernanceCourse = () => {
             <div className="sticky top-0 bg-white border-b p-6 flex items-center justify-between" style={{ borderColor: '#E5E7EB' }}>
               <div>
                 <h3 className="text-2xl font-black" style={{ color: '#132552' }}>
-                  {formType === 'apply' ? 'Apply for Course' : 'Download Syllabus'}
+                  {formType === 'apply' ? 'Apply for Course' : ''}
                 </h3>
                 <p className="text-sm mt-1" style={{ color: '#6B7280' }}>
                   Please fill in your details below
@@ -365,7 +365,7 @@ const MaritimeGovernanceCourse = () => {
                   className="flex-1 px-6 py-3 rounded-lg font-bold transition-all disabled:opacity-50"
                   style={{ backgroundColor: '#8E3400', color: 'white' }}
                 >
-                  {isSubmitting ? 'Submitting...' : (formType === 'apply' ? 'Submit Application' : 'Download Syllabus')}
+                  {isSubmitting ? 'Submitting...' : (formType === 'apply' ? 'Submit Application' : '')}
                 </button>
               </div>
             </form>
@@ -404,14 +404,6 @@ const MaritimeGovernanceCourse = () => {
               style={{ backgroundColor: '#8E3400', color: 'white' }}
             >
               <span>Apply Now</span>
-            </button>
-            <button 
-              onClick={() => openForm('download')}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 rounded-lg text-base font-bold transition-all hover:scale-105 shadow-xl"
-              style={{ color: '#132552' }}
-            >
-              <Download className="w-5 h-5" />
-              <span>Download Syllabus</span>
             </button>
           </div>
         </div>
@@ -499,14 +491,6 @@ const MaritimeGovernanceCourse = () => {
                     style={{ backgroundColor: '#8E3400', color: 'white' }}
                   >
                     Apply Now
-                  </button>
-                  <button 
-                    onClick={() => openForm('download')}
-                    className="w-full py-3.5 rounded-lg font-bold border-2 transition-all hover:shadow-lg flex items-center justify-center gap-2"
-                    style={{ borderColor: '#132552', color: '#132552' }}
-                  >
-                    <Download className="w-5 h-5" />
-                    <span>Download Syllabus</span>
                   </button>
                 </div>
 
