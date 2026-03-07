@@ -60,7 +60,7 @@ const IMSWGforum = () => {
     setErrors({});
     
     try {
-      const apiUrl = 'https://gogmi.org.gh/api';
+      const apiUrl = 'https://gogmi.org.gh/backend/api';
       const response = await fetch(`${apiUrl}/imswg-forum.php`, {
         method: 'POST',
         headers: {
@@ -155,7 +155,7 @@ const IMSWGforum = () => {
       {/* Form */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
-          {/* Introduction - Updated to match image */}
+          {/* Introduction */}
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
             <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
               Please fill out the form below to apply for membership in the International Maritime Security Working Group.
@@ -171,7 +171,7 @@ const IMSWGforum = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Personal Information - Matches image exactly */}
+            {/* Personal Information */}
             <div>
               <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>
                 Personal Information
@@ -255,7 +255,7 @@ const IMSWGforum = () => {
               </div>
             </div>
 
-            {/* Professional Information - Matches image exactly */}
+            {/* Professional Information */}
             <div>
               <h3 className="text-xl font-bold mb-6 pb-2 border-b-2 border-slate-100" style={{ color: '#1e293b' }}>
                 Professional Information
@@ -282,7 +282,7 @@ const IMSWGforum = () => {
                   )}
                 </div>
 
-                {/* Institution/Organisation - New optional field */}
+                {/* Institution/Organisation */}
                 <div>
                   <label className="block text-sm font-semibold mb-2" style={{ color: '#1e293b' }}>
                     Institution/Organisation <span className="text-slate-400 text-xs font-normal">(Optional)</span>
@@ -299,7 +299,7 @@ const IMSWGforum = () => {
               </div>
             </div>
 
-            {/* Submit Button - Matches image exactly */}
+            {/* Submit Button */}
             <div className="pt-6 border-t border-slate-200">
               <button
                 type="submit"
