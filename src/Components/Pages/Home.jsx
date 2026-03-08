@@ -25,12 +25,12 @@ const Home = () => {
     {
       id: 2,
       image: '/imswgq1.jpeg',
-      alt: 'IMSWG Quarter 11'
+      alt: 'IMSWG Quarter 1'
     },
     {
       id: 3,
       image: '/marigov.jpeg',
-      alt: 'Gulf of Guinea Maritime Week'
+      alt: 'Maritime gov Course'
     },
     {
       id: 4,
