@@ -305,11 +305,11 @@ const IMSWG = () => {
               <p className="text-sm mb-6 leading-relaxed" style={{ color: '#64748b', fontFamily: 'Georgia, serif' }}>
                 Join the IMSWG network and participate in future forums to shape maritime policy
               </p>
-              <button 
-                onClick={() => navigate('/imswg-forum')}
+<button 
+                {/* onClick={() => navigate('/imswg-forum')} */}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
               >
-                <span>Express Your Interest</span>
+                <sp              an>Express Your Interest</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>
