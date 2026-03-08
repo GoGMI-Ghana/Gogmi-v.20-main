@@ -159,7 +159,7 @@ const IMSWGforum = () => {
           {/* Introduction */}
           <div className="mb-10 p-6 bg-slate-50 rounded-xl border-l-4 border-slate-900">
             <p className="text-base leading-relaxed font-medium" style={{ color: '#475569' }}>
-              Please fill out the form below to apply for membership in the International Maritime Security Working Group.
+              Please fill out the form below to register for the 2026 IMSWG Quarter one forum.
             </p>
           </div>
 
