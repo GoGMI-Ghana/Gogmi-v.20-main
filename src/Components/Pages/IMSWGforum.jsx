@@ -114,10 +114,11 @@ const IMSWGforum = () => {
             Application Submitted!
           </h2>
           <p className="text-lg mb-6" style={{ color: '#64748b' }}>
-            Thank you for your interest in joining the International Maritime Security Working Group.
-          </p>
+            Thank you for registering for our upcoming IMSWG 2026 quarter one event. We truly appreciate your interest and look forward to your participation. 
+         </p>
           <p className="text-base mb-8" style={{ color: '#64748b' }}>
-            Our secretariat will review your application and get back to you via email within 5-7 business days.
+            Kindly check your email for other information and link to the event.
+            GoGMI
           </p>
           <button
             onClick={() => navigate('/imswg')}
