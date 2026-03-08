@@ -61,7 +61,7 @@ const IMSWGforum = () => {
     
     try {
       const apiUrl = 'https://api.gogmi.org.gh';
-      const response = await fetch(`${apiUrl}/imswg-forum.php`, {
+      const response = await fetch(`${apiUrl}/api/imswg-forum.php`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
