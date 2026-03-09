@@ -341,7 +341,10 @@ const IMSWG = () => {
               <p className="text-sm mb-6 leading-relaxed" style={{ color: '#64748b', fontFamily: 'Georgia, serif' }}>
                 View upcoming 2026 forum schedule and event details
               </p>
-              <button className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 border-2 border-slate-900 text-slate-900 hover:bg-slate-50 cursor-pointer">
+             <button 
+                onClick={() => navigate('/imswg-events')}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 border-2 border-slate-900 text-slate-900 hover:bg-slate-50 cursor-pointer"
+              >
                 <span>View Details</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
