@@ -439,7 +439,7 @@ const MaritimeGovernanceCourse = () => {
                     <h3 className="font-bold text-sm" style={{ color: '#132552' }}>Dates</h3>
                   </div>
                   <p className="text-base" style={{ color: '#4B5563' }}>May 5 – 28, 2026</p>
-                  <p className="text-sm mt-1" style={{ color: '#6B7280' }}>4 weeks, 8 modules</p>
+                  <p className="text-sm mt-1" style={{ color: '#6B7280' }}>2 weeks, 8 modules</p>
                 </div>
 
                 <div>
@@ -474,7 +474,7 @@ const MaritimeGovernanceCourse = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="w-5 h-5" style={{ color: '#8E3400' }} />
-                    <h3 className="font-bold text-sm" style={{ color: '#132552' }}>Fee</h3>
+                    <h3 className="font-bold text-sm" style={{ color: '#132552' }}>Fee,500 USD</h3>
                   </div>
                   <p className="text-sm" style={{ color: '#6B7280' }}>Contact us for pricing information</p>
                 </div>
@@ -596,7 +596,7 @@ const MaritimeGovernanceCourse = () => {
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="text-center p-8 rounded-xl" style={{ backgroundColor: '#8E3400', color: 'white' }}>
-                    <div className="text-5xl font-black mb-2">4</div>
+                    <div className="text-5xl font-black mb-2">2</div>
                     <div className="text-lg font-semibold">weeks of intensive learning</div>
                   </div>
                   <div className="text-center p-8 rounded-xl" style={{ backgroundColor: '#132552', color: 'white' }}>
