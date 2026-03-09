@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // DATABASE CONFIGURATION
 $host = 'localhost';
-$dbname = 'u448928185_gogmi';  
-$username = 'u448928185_gogmi';           
+$dbname = 'u448928185_gogmi_website';  
+$username = 'u448928185_site_database';           
 $password = 'CDCTeam2o25';               
 
 try {
@@ -129,7 +129,7 @@ try {
         </head>
         <body>
             <div class='header'>
-                <h2>New IMSWG Forum 2026 Application</h2>
+                <h2> IMSWG Forum 2026 Application</h2>
             </div>
             <div class='content'>
                 <div class='field'><strong>Application ID:</strong> #$applicationId</div>
@@ -157,7 +157,7 @@ try {
     $headers .= "Reply-To: info@gogmi.org.gh\r\n";
     
     // Send to admin
-    @mail($adminEmail, $subject, $emailBody, $headers);
+    // @mail($adminEmail, $subject, $emailBody, $headers);
     
     // Send confirmation email to applicant
     $confirmSubject = 'IMSWG Forum 2026 - Application Received';
