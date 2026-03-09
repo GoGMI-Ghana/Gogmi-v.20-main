@@ -315,23 +315,7 @@ const BlueCareerExpo = () => {
       
 
       {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#132552' }}>
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6" style={{ fontWeight: 900, letterSpacing: '-0.02em' }}>
-            Join Our Next Event
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Stay connected with GoGMI and be the first to know about our upcoming events and initiatives
-          </p>
-          <button 
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:scale-105"
-            style={{ backgroundColor: '#8E3400', color: 'white', fontWeight: 700 }}
-          >
-            <span>Get Notified</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
-      </section>
+     
     </div>
   );
 };

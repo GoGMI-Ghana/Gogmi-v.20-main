@@ -207,7 +207,7 @@ const IMSWGEvents = () => {
                 Despite the region's immense potential, persistent maritime security challenges — including piracy, armed robbery at sea, IUU fishing, trafficking, marine pollution, and weak maritime governance — continue to undermine sustainable ocean-based development.
               </p>
               <p className="text-base leading-relaxed" style={{ color: '#6B7280' }}>
-                This forum will discuss the research paper authored by Lieutenant Commander Kofi Amponsah Duodu, developed under the United Nations – Nippon Foundation Fellowship Programme at the International Maritime Law Institute (IMLI), Malta.
+                This forum will discuss the research paper authored by Commander Kofi Amponsah Duodu, developed under the United Nations – Nippon Foundation Fellowship Programme at the International Maritime Law Institute (IMLI), Malta.
               </p>
             </div>
 
@@ -411,7 +411,7 @@ const IMSWGEvents = () => {
                     </div>
                     <div>
                       <p className="text-sm font-bold" style={{ color: '#132552' }}>Author</p>
-                      <p className="text-sm" style={{ color: '#6B7280' }}>Lieutenant Commander Kofi Amponsah Duodu</p>
+                      <p className="text-sm" style={{ color: '#6B7280' }}>Commander Kofi Amponsah Duodu</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
