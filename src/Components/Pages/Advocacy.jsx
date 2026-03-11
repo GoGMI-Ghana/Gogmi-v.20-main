@@ -67,15 +67,15 @@ const campaigns = [
       logo: '/IMSWG LOGO WHITE BG.jpg',
       link: '/imswg'
     },
-    {
+   {
       status: 'active',
-      title: 'National Maritime Safety and Security (NaMSSec) Forum',
-      category: 'Maritime Safety',
-      description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions.',
+      title: 'Blue Career and Business Expo',
+      category: 'Youth Development',
+      description: "The Blue Career and Business Expo is a yearly programme designed to create dynamic opportunity-exchange platforms that enable young people to engage with maritime industry leaders and actively contribute to building a robust blue economy in Africa.",
       supporters: 3200,
-      deadline: 'Ongoing',
-      logo: '/shade.png',
-      link: '/contact'
+      deadline: 'Annual Event',
+      logo: '/bluecareer.webp',
+      link: '/bluecareerexpo'
     },
     {
       status: 'active',
