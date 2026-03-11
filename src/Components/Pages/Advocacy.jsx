@@ -128,13 +128,13 @@ const Advocacy = () => {
       logo: '/safe-seas-logo.png'
     },
        {
-      status: 'active',
-      title: 'National Maritime Safety and Security (NaMSSec) Forum ',
-      category: 'Maritime Safety',
-      description: 'A high level stakeholder forum organized to discuss and advise on policies and identify policy gaps for necessary interventions',
+      status: 'completed',
+      title: 'Blue Career and Business Expo',
+      category: 'Youth Development',
+      description: 'The Blue Career and Business Expo is a yearly event that connects young people with maritime industry leaders to support Africa's blue economy.',
       supporters: 3200,
-      deadline: 'Ongoing',
-      logo: '/shade.png'
+      link: '/bluecareerexpo',
+      logo: '/bluecareer.webp'
     },
        {
       status: 'active',
