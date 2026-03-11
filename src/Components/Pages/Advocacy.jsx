@@ -23,6 +23,37 @@ import {
 const Advocacy = () => {
   const [activeTab, setActiveTab] = useState('all');
 
+  const policyAreas = [
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: 'Maritime Security',
+      description: 'Advocating for enhanced regional cooperation and capacity building to combat piracy and maritime crime.',
+      color: '#132552',
+      initiatives: ['Regional Information Sharing', 'Naval Cooperation Frameworks', 'Port Security Standards']
+    },
+    {
+      icon: <Waves className="w-8 h-8" />,
+      title: 'Blue Economy',
+      description: 'Promoting sustainable utilization of ocean resources for economic growth and marine conservation.',
+      color: '#8E3400',
+      initiatives: ['Sustainable Fisheries', 'Marine Tourism', 'Ocean Conservation']
+    },
+    {
+      icon: <Scale className="w-8 h-8" />,
+      title: 'Maritime Governance',
+      description: 'Strengthening legal frameworks and institutional capacity for effective maritime management.',
+      color: '#1A336C',
+      initiatives: ['Legal Harmonization', 'Institutional Development', 'Compliance Monitoring']
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: 'Capacity Building',
+      description: 'Developing human resource capabilities across maritime institutions and communities.',
+      color: '#8E3400',
+      initiatives: ['Professional Training', 'Youth Programs', 'Technical Assistance']
+    }
+  ];
+
 
 
   const campaigns = [
@@ -45,16 +76,6 @@ const Advocacy = () => {
       deadline: 'Ongoing',
       logo: '/shade.png',
       link: '/contact'
-    },
-    {
-      status: 'active',
-      title: 'Blue World Initiative',
-      category: 'Youth Development',
-      description: 'BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards.',
-      supporters: 1250,
-      deadline: 'Ongoing',
-      logo: '/GoGMI_PNG.png',
-      link: '/blue-world-initiative'
     },
     {
       status: 'completed',
@@ -204,75 +225,10 @@ const Advocacy = () => {
         </div>
       </section>
 
-      {/* ACHIEVEMENTS */}
-      <section className="py-20 md:py-32" style={{ backgroundColor: '#F5F7FA' }}>
-        <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-wider" style={{ fontWeight: 600, color: '#8E3400' }}>Track Record</span>
-            <h2 className="text-5xl md:text-6xl mt-4 mb-6"
-                style={{ fontWeight: 900, color: '#132552', letterSpacing: '-0.02em' }}>
-              Our Advocacy Wins
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            {achievements.map((achievement, idx) => (
-              <div
-                key={idx}
-                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="grid md:grid-cols-5 gap-0">
-                  <div className="md:col-span-2 relative h-64 md:h-72 bg-white flex items-center justify-center p-8">
-                    <img
-                      src={achievement.image}
-                      alt={achievement.title}
-                      className="max-w-full max-h-full object-contain"
-                      style={{ objectFit: 'contain' }}
-                    />
-                  </div>
-
-                  <div className="md:col-span-3 p-8">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="px-4 py-1.5 rounded-full text-white text-sm"
-                           style={{ fontWeight: 700, backgroundColor: '#132552' }}>
-                        {achievement.year}
-                      </div>
-                      {achievement.impact && (
-                        <div className="px-4 py-1.5 rounded-full text-sm"
-                             style={{ fontWeight: 600, backgroundColor: '#F5F7FA', color: '#8E3400' }}>
-                          {achievement.impact}
-                        </div>
-                      )}
-                    </div>
-
-                    <h3 className="text-xl md:text-2xl mb-4 line-clamp-2"
-                        style={{ fontWeight: 900, color: '#132552' }}>
-                      {achievement.title}
-                    </h3>
-
-                    <p className="text-base leading-relaxed mb-5 line-clamp-3" style={{ fontWeight: 400, color: '#4B5563' }}>
-                      {achievement.description}
-                    </p>
-
-                    <Link
-                      to={achievement.link}
-                      className="inline-flex items-center gap-2 transition-all hover:gap-4 text-base"
-                      style={{ fontWeight: 600, color: '#8E3400' }}
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+   
 
     </div>
   );
 };
 
 export default Advocacy;
-    
