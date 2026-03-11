@@ -102,6 +102,16 @@ const Advocacy = () => {
       link: '/contact'
     },
     {
+      status: 'active',
+      title: 'Blue World Initiative',
+      category: 'Youth Development',
+      description: 'BWI is an Ocean literacy program for Basic and Second Cycle school students with the knowledge and tools to become informed and engaged ocean stewards.',
+      supporters: 1250,
+      deadline: 'Ongoing',
+      logo: '/GoGMI_PNG.png',
+      link: '/blue-world-initiative'
+    },
+    {
       status: 'completed',
       title: 'Blue Career and Business Expo',
       category: 'Youth Development',
