@@ -22,8 +22,7 @@ const MaritimeGovernanceCourse = () => {
     position: '',
     institution: '',
     country: '',
-    password: '',
-    confirmPassword: ''
+   
   });
 
   const [memberForm, setMemberForm] = useState({
@@ -86,35 +85,7 @@ const MaritimeGovernanceCourse = () => {
     setMemberForm({ ...memberForm, [e.target.name]: e.target.value });
   };
 
-  const handleNonMemberSubmit = async (e) => {
-    e.preventDefault();
-    if (nonMemberForm.password.length < 8) {
-      alert('Password must be at least 8 characters');
-      return;
-    }
-    if (nonMemberForm.password !== nonMemberForm.confirmPassword) {
-      alert('Passwords do not match');
-      return;
-    }
-    setIsSubmitting(true);
-    try {
-      const response = await fetch('/api/maritime-governance-interest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...nonMemberForm, type: 'non-member', price: NON_MEMBER_PRICE })
-      });
-      if (response.ok) {
-        alert('Application submitted successfully! We will contact you shortly.');
-        closeApply();
-      } else {
-        alert('There was an error. Please try again or contact info@gogmi.org.gh');
-      }
-    } catch {
-      alert('There was an error. Please try again or contact info@gogmi.org.gh');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+ 
 
   const handleMemberSubmit = async (e) => {
     e.preventDefault();
