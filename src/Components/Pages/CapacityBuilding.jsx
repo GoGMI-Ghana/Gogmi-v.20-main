@@ -41,7 +41,7 @@ const CapacityBuilding = () => {
       modules: '8 modules',
       level: 'Professional',
       faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
-      nextIntake: 'May 5 - 28, 2026',
+      nextIntake: 'May 5 - 14, 2026',
       image: '/marigov.jpeg',
       bgColor: '#132552',
       accentColor: '#17A2B8',
