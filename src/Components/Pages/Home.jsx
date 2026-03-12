@@ -29,7 +29,7 @@ const Home = () => {
     },
     {
       id: 3,
-      image: '/marigovvvv.jpeg',
+      image: '/maritimegovvvv.jpeg',
       alt: 'Maritime gov Course'
     },
     {
