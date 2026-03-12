@@ -581,7 +581,7 @@ const MarineCasualtyCourse = () => {
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Globe className="w-5 h-5" />
-                <span className="font-semibold">Hybrid Format</span>
+                <span className="font-semibold">In Person</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <BookOpen className="w-5 h-5" />
