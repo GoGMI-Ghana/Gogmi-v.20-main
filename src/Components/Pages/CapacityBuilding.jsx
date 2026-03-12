@@ -42,7 +42,7 @@ const CapacityBuilding = () => {
       level: 'Professional',
       faculty: ['Vice Admiral Issah Yakubu', 'Prof. Jeffrey Landsman', 'Dr. Alberta Sagoe'],
       nextIntake: 'May 5 - 14, 2026',
-      image: '/maritimegovvvv.jpeg',
+      image: '/maritmegovvvv.jpeg',
       bgColor: '#132552',
       accentColor: '#17A2B8',
       buttonColor: '#8E3400',
@@ -116,13 +116,12 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'Maritime Governance Course :
-A Focus on Africa',
+      title: 'Maritime Governance Course :A Focus on Africa',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
       duration: '10 days',
       format: 'Virtual',
       level: 'All Levels',
-      image: '/maritimegovvvv.jpeg',
+      image: '/maritmegovvvv.jpeg',
       features: ['Panel Discussions', 'Network Sessions', 'Career Fair'],
       impact: 'Launched Ghana\'s Blue Business Directory',
       nextIntake: 'May 5 – 15, 2026'
