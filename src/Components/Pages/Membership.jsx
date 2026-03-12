@@ -497,7 +497,7 @@ const Membership = () => {
                   <>
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                        Organization Name <span className="text-red-500">*</span>
+                        Organization/Institution Name <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -512,7 +512,7 @@ const Membership = () => {
 
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: '#132552' }}>
-                        Organization Email Address <span className="text-red-500">*</span>
+                        Organization/Institution Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
