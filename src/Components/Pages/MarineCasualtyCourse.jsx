@@ -15,13 +15,130 @@ import {
   Microscope,
   Download,
   Globe,
-  Calendar
+  Calendar,
+  X,
+  Tag,
+  User
 } from 'lucide-react';
 
 const MarineCasualtyCourse = () => {
   const [activeModule, setActiveModule] = useState(null);
 
-  // Course Modules with detailed content from PDF
+  // ── Apply Modal State ──
+  const [applyStep, setApplyStep] = useState(null); // null | 'choose' | 'verify' | 'member' | 'nonmember'
+  const [memberCode, setMemberCode] = useState('');
+  const [memberCodeError, setMemberCodeError] = useState('');
+  const [memberCodeValid, setMemberCodeValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [nonMemberForm, setNonMemberForm] = useState({
+    fullName: '', email: '', phone: '', position: '', institution: '', country: ''
+  });
+
+  const [memberForm, setMemberForm] = useState({
+    fullName: '', email: '', phone: '', position: '', institution: '', country: ''
+  });
+
+  const MEMBER_PRICE = 350;
+  const NON_MEMBER_PRICE = 450;
+  const DISCOUNT = NON_MEMBER_PRICE - MEMBER_PRICE;
+  const DISCOUNT_PERCENT = Math.round((DISCOUNT / NON_MEMBER_PRICE) * 100);
+
+  const openApply = () => {
+    setApplyStep('choose');
+    setMemberCode('');
+    setMemberCodeError('');
+    setMemberCodeValid(false);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeApply = () => {
+    setApplyStep(null);
+    setMemberCode('');
+    setMemberCodeError('');
+    setMemberCodeValid(false);
+    setNonMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
+    setMemberForm({ fullName: '', email: '', phone: '', position: '', institution: '', country: '' });
+    document.body.style.overflow = 'unset';
+  };
+
+  const validateMemberCode = () => {
+    if (memberCode.trim().length < 6) {
+      setMemberCodeError('Please enter a valid membership code (minimum 6 characters)');
+      setMemberCodeValid(false);
+      return;
+    }
+    setMemberCodeError('');
+    setMemberCodeValid(true);
+    setApplyStep('member');
+  };
+
+  const handleNonMemberChange = (e) => {
+    setNonMemberForm({ ...nonMemberForm, [e.target.name]: e.target.value });
+  };
+
+  const handleMemberChange = (e) => {
+    setMemberForm({ ...memberForm, [e.target.name]: e.target.value });
+  };
+
+  const handleNonMemberSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/marine-casualty-interest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...nonMemberForm, type: 'non-member', price: NON_MEMBER_PRICE })
+      });
+      if (response.ok) {
+        alert('Application submitted successfully! We will contact you shortly.');
+        closeApply();
+      } else {
+        alert('There was an error. Please try again or contact info@gogmi.org.gh');
+      }
+    } catch {
+      alert('There was an error. Please try again or contact info@gogmi.org.gh');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleMemberSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/marine-casualty-interest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...memberForm, membershipCode: memberCode, type: 'member', price: MEMBER_PRICE })
+      });
+      if (response.ok) {
+        alert('Application submitted successfully! Your member discount has been applied. We will contact you shortly.');
+        closeApply();
+      } else {
+        alert('There was an error. Please try again or contact info@gogmi.org.gh');
+      }
+    } catch {
+      alert('There was an error. Please try again or contact info@gogmi.org.gh');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleBrochureDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/resources/pdfs/Marine-Casualty-Course-Brochure.pdf';
+    link.download = 'Marine-Casualty-Course-Brochure.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const inputClass = "w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8E3400] focus:border-transparent transition-all";
+  const labelClass = "block text-sm font-bold mb-2";
+
+  // Course Modules
   const modules = [
     {
       number: 1,
@@ -162,7 +279,6 @@ const MarineCasualtyCourse = () => {
     }
   ];
 
-  // Target participants from PDF
   const targetParticipants = [
     "Maritime Law Enforcement Agencies",
     "Maritime Administrations",
@@ -173,7 +289,6 @@ const MarineCasualtyCourse = () => {
     "Representatives from Academia and Civil Society working in Maritime Safety and Governance"
   ];
 
-  // Expected outcomes from PDF
   const expectedOutcomes = [
     "Conduct credible and procedurally compliant marine casualty investigations",
     "Apply the IMO Casualty Investigation Code to real-world accident cases",
@@ -182,7 +297,6 @@ const MarineCasualtyCourse = () => {
     "Support in building a national accident database for safety policy formulation"
   ];
 
-  // Course highlights
   const courseHighlights = [
     {
       icon: <Shield className="w-5 h-5" />,
@@ -208,7 +322,232 @@ const MarineCasualtyCourse = () => {
 
   return (
     <div className="w-full bg-white" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
-      
+
+      {/* ── APPLY MODAL ── */}
+      {applyStep && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}>
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-white border-b p-6 flex items-center justify-between z-10" style={{ borderColor: '#E5E7EB' }}>
+              <div>
+                <h3 className="text-2xl font-black" style={{ color: '#132552' }}>
+                  {applyStep === 'choose' && 'Apply for Course'}
+                  {applyStep === 'verify' && 'Verify Membership'}
+                  {applyStep === 'member' && 'Member Application'}
+                  {applyStep === 'nonmember' && 'Non-Member Application'}
+                </h3>
+                <p className="text-sm mt-1" style={{ color: '#6B7280' }}>Marine Casualty Investigation & Safety Management</p>
+              </div>
+              <button onClick={closeApply} className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                <X className="w-6 h-6" style={{ color: '#6B7280' }} />
+              </button>
+            </div>
+
+            {/* ── STEP 1: Choose member/non-member ── */}
+            {applyStep === 'choose' && (
+              <div className="p-8">
+                <p className="text-base mb-8 text-center" style={{ color: '#4B5563' }}>
+                  Are you a GoGMI member? Members enjoy an exclusive discount on this course.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  {/* Member Card */}
+                  <button
+                    onClick={() => setApplyStep('verify')}
+                    className="group p-6 rounded-2xl border-2 text-left transition-all hover:shadow-xl hover:scale-105"
+                    style={{ borderColor: '#132552' }}
+                  >
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#132552' }}>
+                      <Shield className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>Apply as a Member</h4>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-2xl font-black" style={{ color: '#132552' }}>${MEMBER_PRICE}</span>
+                      <span className="text-sm line-through" style={{ color: '#9CA3AF' }}>${NON_MEMBER_PRICE}</span>
+                    </div>
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white mb-3" style={{ backgroundColor: '#16A34A' }}>
+                      <Tag className="w-3 h-3" />
+                      Save ${DISCOUNT} ({DISCOUNT_PERCENT}% off)
+                    </div>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>You'll need your GoGMI membership code to verify your membership.</p>
+                  </button>
+
+                  {/* Non-Member Card */}
+                  <button
+                    onClick={() => setApplyStep('nonmember')}
+                    className="group p-6 rounded-2xl border-2 text-left transition-all hover:shadow-xl hover:scale-105"
+                    style={{ borderColor: '#8E3400' }}
+                  >
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#8E3400' }}>
+                      <User className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-xl font-black mb-2" style={{ color: '#132552' }}>Apply as a Non-Member</h4>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</span>
+                    </div>
+                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: '#FEF3C7', color: '#92400E' }}>
+                      Standard Rate
+                    </div>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>Apply directly. You can become a member later to enjoy future discounts.</p>
+                  </button>
+                </div>
+
+                <p className="text-center text-sm" style={{ color: '#9CA3AF' }}>
+                  Not yet a member?{' '}
+                  <a href="/membership" className="font-bold hover:underline" style={{ color: '#8E3400' }}>
+                    Join GoGMI
+                  </a>
+                  {' '}to unlock member pricing.
+                </p>
+              </div>
+            )}
+
+            {/* ── STEP 1b: Member Code Verification ── */}
+            {applyStep === 'verify' && (
+              <div className="p-8">
+                {/* Price reminder */}
+                <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#F0FDF4', border: '1px solid #BBF7D0' }}>
+                  <div>
+                    <p className="text-sm font-bold" style={{ color: '#166534' }}>Member Price Applied</p>
+                    <p className="text-xs" style={{ color: '#4B5563' }}>You save ${DISCOUNT} ({DISCOUNT_PERCENT}% off standard rate)</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-2xl font-black" style={{ color: '#132552' }}>${MEMBER_PRICE}</p>
+                    <p className="text-xs line-through" style={{ color: '#9CA3AF' }}>${NON_MEMBER_PRICE}</p>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label className={labelClass} style={{ color: '#132552' }}>GoGMI Membership Code <span className="text-red-500">*</span></label>
+                  <input
+                    type="text"
+                    value={memberCode}
+                    onChange={(e) => { setMemberCode(e.target.value); setMemberCodeError(''); }}
+                    className={inputClass}
+                    style={{ borderColor: memberCodeError ? '#EF4444' : '#E5E7EB' }}
+                    placeholder="Enter your membership code"
+                  />
+                  {memberCodeError && <p className="text-red-500 text-xs mt-2">{memberCodeError}</p>}
+                  <p className="text-xs mt-2" style={{ color: '#9CA3AF' }}>Your membership code was issued when you joined GoGMI. Contact info@gogmi.org.gh if you need help.</p>
+                </div>
+
+                <div className="flex gap-3">
+                  <button type="button" onClick={() => setApplyStep('choose')} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
+                  <button type="button" onClick={validateMemberCode} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all hover:opacity-90" style={{ backgroundColor: '#132552' }}>
+                    Verify Code
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* ── STEP 2A: Member Application Form ── */}
+            {applyStep === 'member' && (
+              <form onSubmit={handleMemberSubmit} className="p-8">
+                {/* Price reminder */}
+                <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#F0FDF4', border: '1px solid #BBF7D0' }}>
+                  <div>
+                    <p className="text-sm font-bold" style={{ color: '#166534' }}>Member Price Applied ✓</p>
+                    <p className="text-xs" style={{ color: '#4B5563' }}>Code verified — you save ${DISCOUNT} ({DISCOUNT_PERCENT}% off)</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-2xl font-black" style={{ color: '#132552' }}>${MEMBER_PRICE}</p>
+                    <p className="text-xs line-through" style={{ color: '#9CA3AF' }}>${NON_MEMBER_PRICE}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Full Name <span className="text-red-500">*</span></label>
+                    <input type="text" name="fullName" value={memberForm.fullName} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Email Address <span className="text-red-500">*</span></label>
+                    <input type="email" name="email" value={memberForm.email} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="john@example.com" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Country Code Plus WhatsApp Number <span className="text-red-500">*</span></label>
+                    <input type="tel" name="phone" value={memberForm.phone} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="+233 XX XXX XXXX" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Position/Title <span className="text-red-500">*</span></label>
+                    <input type="text" name="position" value={memberForm.position} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Marine Safety Officer" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation Name <span className="text-slate-400 text-xs font-normal">(Optional)</span></label>
+                    <input type="text" name="institution" value={memberForm.institution} onChange={handleMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="e.g. Ghana Maritime Authority" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Country <span className="text-red-500">*</span></label>
+                    <input type="text" name="country" value={memberForm.country} onChange={handleMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Ghana" />
+                  </div>
+                </div>
+
+                <div className="flex gap-3 mt-8">
+                  <button type="button" onClick={() => setApplyStep('verify')} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
+                  <button type="submit" disabled={isSubmitting} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#16A34A' }}>
+                    {isSubmitting ? 'Submitting...' : `Pay USD ${MEMBER_PRICE}`}
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {/* ── STEP 2B: Non-Member Application Form ── */}
+            {applyStep === 'nonmember' && (
+              <form onSubmit={handleNonMemberSubmit} className="p-8">
+                {/* Price reminder */}
+                <div className="p-4 rounded-xl mb-8 flex items-center justify-between" style={{ backgroundColor: '#FFF7ED', border: '1px solid #FED7AA' }}>
+                  <div>
+                    <p className="text-sm font-bold" style={{ color: '#92400E' }}>Standard Rate</p>
+                    <p className="text-xs" style={{ color: '#4B5563' }}>
+                      Join GoGMI to save ${DISCOUNT} ({DISCOUNT_PERCENT}% off) on this course
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-2xl font-black" style={{ color: '#132552' }}>${NON_MEMBER_PRICE}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Full Name <span className="text-red-500">*</span></label>
+                    <input type="text" name="fullName" value={nonMemberForm.fullName} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Email Address <span className="text-red-500">*</span></label>
+                    <input type="email" name="email" value={nonMemberForm.email} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="john@example.com" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Country Code Plus WhatsApp Number <span className="text-red-500">*</span></label>
+                    <input type="tel" name="phone" value={nonMemberForm.phone} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="+233 XX XXX XXXX" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Position/Title <span className="text-red-500">*</span></label>
+                    <input type="text" name="position" value={nonMemberForm.position} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Marine Safety Officer" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Institution/Organisation Name <span className="text-slate-400 text-xs font-normal">(Optional)</span></label>
+                    <input type="text" name="institution" value={nonMemberForm.institution} onChange={handleNonMemberChange} className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="e.g. Ghana Maritime Authority" />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={{ color: '#132552' }}>Country <span className="text-red-500">*</span></label>
+                    <input type="text" name="country" value={nonMemberForm.country} onChange={handleNonMemberChange} required className={inputClass} style={{ borderColor: '#E5E7EB' }} placeholder="Ghana" />
+                  </div>
+                </div>
+
+                <div className="flex gap-3 mt-8">
+                  <button type="button" onClick={closeApply} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Cancel</button>
+                  <button type="submit" disabled={isSubmitting} className="flex-1 px-6 py-3 rounded-lg font-bold text-white transition-all disabled:opacity-50 hover:opacity-90" style={{ backgroundColor: '#16A34A' }}>
+                    {isSubmitting ? 'Submitting...' : `Pay USD ${NON_MEMBER_PRICE}`}
+                  </button>
+                </div>
+              </form>
+            )}
+
+          </div>
+        </div>
+      )}
+
       {/* HERO SECTION */}
       <section className="relative text-white py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
@@ -242,7 +581,7 @@ const MarineCasualtyCourse = () => {
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <Globe className="w-5 h-5" />
-                <span className="font-semibold">In Person</span>
+                <span className="font-semibold">Hybrid Format</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-lg">
                 <BookOpen className="w-5 h-5" />
@@ -250,13 +589,29 @@ const MarineCasualtyCourse = () => {
               </div>
             </div>
 
+            {/* Pricing display */}
+            <div className="flex flex-wrap gap-4 mb-8">
+              <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20">
+                <p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-1">Member Price</p>
+                <p className="text-2xl font-black">${MEMBER_PRICE} <span className="text-sm font-normal line-through text-white/50">${NON_MEMBER_PRICE}</span></p>
+              </div>
+              <div className="px-5 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20">
+                <p className="text-xs font-bold uppercase tracking-wide text-white/70 mb-1">Standard Rate</p>
+                <p className="text-2xl font-black">${NON_MEMBER_PRICE}</p>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl"
-                      style={{ backgroundColor: '#132552', color: 'white' }}>
+              <button
+                onClick={openApply}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 shadow-2xl"
+                style={{ backgroundColor: '#132552', color: 'white' }}>
                 <span>Apply Now</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 border-white/30 hover:bg-white/10">
+              <button
+                onClick={handleBrochureDownload}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 border-2 border-white/30 hover:bg-white/10">
                 <Download className="w-5 h-5" />
                 <span>Download Brochure</span>
               </button>
@@ -512,8 +867,8 @@ const MarineCasualtyCourse = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-3" style={{ color: '#8E3400' }}>Mode of Delivery</h3>
                   <p className="text-base leading-relaxed" style={{ color: '#4B5563' }}>
-                    <strong>In-person</strong> 
-                  
+                    <strong>In-person:</strong> Participants from Ghana<br/>
+                    <strong>Virtual:</strong> International Participants
                   </p>
                 </div>
 
