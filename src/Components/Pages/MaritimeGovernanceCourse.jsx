@@ -415,50 +415,8 @@ const MaritimeGovernanceCourse = () => {
                   </div>
 
                   {/* Password Section */}
-                  <div className="border-t pt-6 mt-2" style={{ borderColor: '#E5E7EB' }}>
-                    <h4 className="font-black text-sm mb-4" style={{ color: '#132552' }}>Create Account Password</h4>
-                    <div className="space-y-4">
-                      <div>
-                        <label className={labelClass} style={{ color: '#132552' }}>Password <span className="text-red-500">*</span></label>
-                        <div className="relative">
-                          <input
-                            type={showPassword ? 'text' : 'password'}
-                            name="password"
-                            value={nonMemberForm.password}
-                            onChange={handleNonMemberChange}
-                            required
-                            minLength={8}
-                            className={inputClass + ' pr-12'}
-                            style={{ borderColor: '#E5E7EB' }}
-                            placeholder="Minimum 8 characters"
-                          />
-                          <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                            {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                          </button>
-                        </div>
-                      </div>
-                      <div>
-                        <label className={labelClass} style={{ color: '#132552' }}>Confirm Password <span className="text-red-500">*</span></label>
-                        <div className="relative">
-                          <input
-                            type={showConfirmPassword ? 'text' : 'password'}
-                            name="confirmPassword"
-                            value={nonMemberForm.confirmPassword}
-                            onChange={handleNonMemberChange}
-                            required
-                            minLength={8}
-                            className={inputClass + ' pr-12'}
-                            style={{ borderColor: '#E5E7EB' }}
-                            placeholder="Re-enter your password"
-                          />
-                          <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                            {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                 
+            
 
                 <div className="flex gap-3 mt-8">
                   <button type="button" onClick={() => setApplyStep('choose')} className="flex-1 px-6 py-3 rounded-lg font-bold border-2 transition-all" style={{ borderColor: '#E5E7EB', color: '#6B7280' }}>Back</button>
