@@ -77,14 +77,14 @@ const CapacityBuilding = () => {
     {
       category: 'Hybrid',
       status: 'Active',
-      title: 'MARINE CASUALTY',
-      description: 'An African maritime accelerator designed to encourage youth to engage in sustainable blue economy careers.',
-      duration: '12 months',
-      format: 'Hybrid',
+      title: 'MARINE CASUALTY INVESTIGATION & SAFETY MANAGEMENT',
+      description: 'Maritime and Inland Waterways (IWW) transportation safety is central to Africa's transport systems, supporting trade, passenger mobility, fishing, and livelihoods in coastal and riverine communities.',
+      duration: '5 days',
+      format: 'In Person',
       level: 'All Levels',
       image: '/bluementorshipimage.png',
-      features: ['1-on-1 Mentorship', 'Industry Networks', 'Career Guidance'],
-      nextIntake: 'March 2025',
+      features: ['IMO Compliance', 'Expert Faculty', 'Hybrid Format','Certification'],
+      nextIntake: '15-19 JUNE,2026',
       link: '/marine-casualty-course'
     },
     {
