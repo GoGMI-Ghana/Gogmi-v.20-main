@@ -227,7 +227,7 @@ const IMSWG = () => {
                 Join the IMSWG network and participate in future forums to shape maritime policy
               </p>
               <button 
-                onClick={() => navigate('/imswg-forum')}
+                onClick={() => navigate('/imswg-signup')}
                 className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold transition-all hover:gap-3 bg-slate-900 hover:bg-slate-800 text-white cursor-pointer"
               >
                 <span>Express Your Interest</span>
