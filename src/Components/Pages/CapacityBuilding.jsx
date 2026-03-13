@@ -90,13 +90,13 @@ const CapacityBuilding = () => {
     {
       category: 'Virtual',
       status: 'Active',
-      title: 'MARITIME GOVERNANCE',
-      description: `The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa's blue economy and expose participants to various career and business opportunities in the blue industry.`,
-      duration: '4 weeks',
-      format: 'Online',
+      title: 'MARITIME GOVERNANCE COURSE: A FOCUS ON AFRICA ',
+      description: `For decades, the African continent has faced a wide range of maritime security threats and challenges, none of which can be fully addressed without strategic guidance. Consequently, the continent witnessed a proliferation of strategy documents, including the 2050 Africa's Integrated Maritime Strategy in 2012, the Lomé Charter in 2016, and the Africa Blue Economy Strategy in 2019.This comprehensive course equips professionals, stakeholders, and decision-makers with the knowledge, skills, and tools necessary to develop and implement effective maritime strategies within the African context.`,
+      duration: '2 weeks',
+      format: 'Virtual/Online',
       level: 'Beginner-Intermediate',
       image: '/ecop.png',
-      features: ['4 Training Modules', 'Zoom Workshops', 'Certificate'],
+      features: ['8 Training Modules', 'Zoom Workshops', 'Certificate'],
       nextIntake: 'Quarterly',
       link: '/maritime-governance-course'
     },
@@ -116,14 +116,14 @@ const CapacityBuilding = () => {
     {
       category: 'Onsite',
       status: 'Completed',
-      title: 'MASSDI',
+      title: 'MaSSDI Training Course',
       description: 'Platform connecting young people with maritime industry leaders to explore careers and opportunities.',
-      duration: '10 days',
-      format: 'Virtual',
+      duration: '2 months',
+      format: 'Virtual/Online',
       level: 'All Levels',
       image: '/maritmegovvvv.jpeg',
-      features: ['Panel Discussions', 'Network Sessions', 'Career Fair'],
-      nextIntake: 'May 5 – 15, 2026',
+      features: ['Maritime Security Strategy Theory', 'Assessing Maritime Security Challenges & Opportunities I & II', 'Interagency Coordination and Stakeholder Analysis I & II'],
+      nextIntake: '6th oct - 30th Nov 2025',
       link: '/massdi'
     },
     {
