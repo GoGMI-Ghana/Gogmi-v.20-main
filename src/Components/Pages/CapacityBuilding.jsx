@@ -82,7 +82,7 @@ const CapacityBuilding = () => {
       duration: '5 days',
       format: 'In Person',
       level: 'All Levels',
-      image: '/bluementorshipimage.png',
+      image: '/marinecasuality.jpeg',
       features: ['IMO Compliance', 'Expert Faculty', 'Hybrid Format','Certification'],
       nextIntake: '15-19 JUNE,2026',
       link: '/marine-casualty-course'
