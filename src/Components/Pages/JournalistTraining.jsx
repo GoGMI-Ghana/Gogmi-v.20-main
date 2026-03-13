@@ -36,7 +36,7 @@ const JournalistTraining = () => {
       <section className="relative text-white overflow-hidden" style={{ minHeight: '480px' }}>
         <div className="absolute inset-0">
           <img
-            src="/bluecareer.webp"
+            src="/journalist.training.webp"
             alt="Training for Journalists"
             className="w-full h-full object-cover"
           />
@@ -261,7 +261,7 @@ const JournalistTraining = () => {
                 {/* Flyer image — replace src with actual flyer path */}
                 <div className="relative group">
                   <img
-                    src="/resources/images/journalist-training-flyer.jpg"
+                    src="public/journalist.training.webp"
                     alt="Journalist Training 2025 Flyer"
                     className="w-full object-cover"
                     style={{ maxHeight: '420px', objectPosition: 'top' }}
