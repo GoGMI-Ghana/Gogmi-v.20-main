@@ -72,7 +72,7 @@ const CapacityBuilding = () => {
     }
   ];
 
-  // Core Programs - with status
+  // Core Programs - with status and links
   const programs = [
     {
       category: 'Hybrid',
@@ -84,34 +84,34 @@ const CapacityBuilding = () => {
       level: 'All Levels',
       image: '/bluementorshipimage.png',
       features: ['1-on-1 Mentorship', 'Industry Networks', 'Career Guidance'],
-      impact: '200+ youth engaged since 2021',
-      nextIntake: 'March 2025'
+      nextIntake: 'March 2025',
+      link: '/marine-casualty-course'
     },
     {
       category: 'Virtual',
       status: 'Active',
       title: 'MARITIME GOVERNANCE',
-      description: 'The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa’s blue economy and expose participants to various career and business opportunities in the blue industry.',
+      description: 'The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa's blue economy and expose participants to various career and business opportunities in the blue industry.',
       duration: '4 weeks',
       format: 'Online',
       level: 'Beginner-Intermediate',
       image: '/ecop.png',
       features: ['4 Training Modules', 'Zoom Workshops', 'Certificate'],
-      impact: 'Supported by IOC-UNESCO & NORAD',
-      nextIntake: 'Quarterly'
+      nextIntake: 'Quarterly',
+      link: '/maritime-governance-course'
     },
     {
       category: 'Onsite',
       status: 'Completed',
       title: '2025 Training for Journalist and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
-      description: 'To better raise awareness on maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on: “Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
+      description: 'To better raise awareness on maritime security issues and challenges, the EnMAR project and the Gulf of Guinea Maritime Institute (GoGMI) are launching a call for participation for a training course on: "Training for Journalists and Media Practitioners on Maritime Security, Safety and Blue Economy in the Gulf of Guinea',
       duration: '3 days',
       format: 'Hybrid',
       level: 'All Levels',
       image: '/bluecareer.webp',
       features: ['Hands-on training in open-source intelligence', 'data journalism', ' multimedia storytelling'],
-      // impact: 'Launched Ghana\'s Blue Business Directory',
-      nextIntake: '7-9 October 2025'
+      nextIntake: '7-9 October 2025',
+      link: '/journalist-training'
     },
     {
       category: 'Onsite',
@@ -123,8 +123,8 @@ const CapacityBuilding = () => {
       level: 'All Levels',
       image: '/maritmegovvvv.jpeg',
       features: ['Panel Discussions', 'Network Sessions', 'Career Fair'],
-      impact: 'Launched Ghana\'s Blue Business Directory',
-      nextIntake: 'May 5 – 15, 2026'
+      nextIntake: 'May 5 – 15, 2026',
+      link: '/massdi'
     },
     {
       category: 'Hybrid',
@@ -136,23 +136,22 @@ const CapacityBuilding = () => {
       level: 'All Levels',
       image: '/bluementorshipimage.png',
       features: ['1-on-1 Mentorship', 'Industry Networks', 'Career Guidance'],
-      impact: '200+ youth engaged since 2021',
-      nextIntake: 'March 2025'
+      nextIntake: 'March 2025',
+      link: '/ecop'
     },
-     {
+    {
       category: 'Virtual',
       status: 'Active',
       title: 'WYTEC',
-      description: 'The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa’s blue economy and expose participants to various career and business opportunities in the blue industry.',
+      description: 'The ECOP Training Course was held twice this year in March and November 2022 as a 9-day event to equip the youth with first-hand knowledge about Africa's blue economy and expose participants to various career and business opportunities in the blue industry.',
       duration: '4 weeks',
       format: 'Online',
       level: 'Beginner-Intermediate',
       image: '/ecop.png',
       features: ['4 Training Modules', 'Zoom Workshops', 'Certificate'],
-      impact: 'Supported by IOC-UNESCO & NORAD',
-      nextIntake: 'Quarterly'
+      nextIntake: 'Quarterly',
+      link: '/wytec'
     }
-    
   ];
 
   const successStories = [
@@ -208,12 +207,10 @@ const CapacityBuilding = () => {
   // Handle navigation with fallback
   const handleCourseNavigation = (course) => {
     if (course.id === 'maritime-governance') {
-      // For maritime governance, use the correct route
       navigate('/maritime-governance-course');
     } else if (course.id === 'marine-casualty') {
       navigate('/marine-casualty-course');
     } else {
-      // Fallback to the link property
       navigate(course.link);
     }
   };
@@ -427,7 +424,7 @@ const CapacityBuilding = () => {
                             </div>
                           </div>
 
-                          {/* Action Buttons - FIXED: Using onClick for more control */}
+                          {/* Action Buttons */}
                           <div className="flex flex-col sm:flex-row gap-3 mb-6">
                             <button
                               onClick={() => handleCourseNavigation(course)}
@@ -485,12 +482,8 @@ const CapacityBuilding = () => {
       {/* Add CSS for progress animation */}
       <style>{`
         @keyframes slideProgress {
-          from {
-            transform: translateX(-100%);
-          }
-          to {
-            transform: translateX(100%);
-          }
+          from { transform: translateX(-100%); }
+          to { transform: translateX(100%); }
         }
         .animate-progress {
           animation: slideProgress 15s linear infinite;
@@ -567,17 +560,11 @@ const CapacityBuilding = () => {
                     ))}
                   </div>
 
-                  <div className="p-3 rounded-lg mb-4" style={{ backgroundColor: 'rgba(142, 52, 0, 0.1)' }}>
-                    <div className="flex items-center gap-2">
-                      <TrendingUp className="w-4 h-4" style={{ color: '#8E3400' }} />
-                      <span className="text-xs" style={{ fontWeight: 700, color: '#8E3400' }}>
-                        {program.impact}
-                      </span>
-                    </div>
-                  </div>
-
-                  <button className="w-full px-4 py-2.5 rounded-xl transition-all hover:scale-105"
-                          style={{ fontWeight: 700, backgroundColor: '#132552', color: 'white', fontSize: '0.875rem' }}>
+                  <button
+                    onClick={() => navigate(program.link)}
+                    className="w-full px-4 py-2.5 rounded-xl transition-all hover:scale-105"
+                    style={{ fontWeight: 700, backgroundColor: '#132552', color: 'white', fontSize: '0.875rem' }}
+                  >
                     Learn More
                   </button>
                 </div>
@@ -613,8 +600,7 @@ const CapacityBuilding = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                   
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-xl text-white mb-1"
-                        style={{ fontWeight: 900 }}>
+                    <h3 className="text-xl text-white mb-1" style={{ fontWeight: 900 }}>
                       {story.name}
                     </h3>
                     <p className="text-sm mb-2" style={{ fontWeight: 600, color: '#8E3400' }}>
